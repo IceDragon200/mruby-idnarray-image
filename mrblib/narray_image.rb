@@ -1,4 +1,5 @@
 class NArray::Image
+  alias :[] :get_pixel
   alias :set_pixel_rgba :set_pixel
 
   # @param [Integer] x
@@ -12,12 +13,15 @@ class NArray::Image
     set_pixel_rgba(x, y, r, g, b, a)
   end
 
-  # @param [Array<Integer>]
+  # @param [Integer] x
+  # @param [Integer] y
+  # @param [Array<Integer>] ary
   # @return [void]
   def set_pixel_ary(x, y, ary)
     set_pixel_rgb(x, y, *ary)
   end
 
+  alias :[]= :set_pixel_ary
   # @param [Integer] x
   # @param [Integer] y
   # @overload set_pixel(x, y, r, g, b, a = 255)
